@@ -1,0 +1,5 @@
+me1-configs/*
+!me1-configs/.gitkeep
+__pycache__/
+*.pyc
+build.sh

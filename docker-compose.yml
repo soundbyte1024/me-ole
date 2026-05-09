@@ -1,0 +1,22 @@
+# docker-compose.yml — for BUILDING locally from source
+# Use this if you have the source files and want to build the image yourself.
+#
+# Usage:
+#   docker compose up --build    # build and start
+#   docker compose up -d         # start detached (after first build)
+#   docker compose down          # stop
+#
+# Configs are stored in ./me1-configs on the host (next to this file).
+# Change the left side of the volume line to any path you prefer, e.g.:
+#   - /home/yourname/me1-configs:/data/configs
+
+services:
+  me-ole:
+    build: .
+    image: me-ole:0.93
+    container_name: me-ole
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./me1-configs:/data/configs
+    restart: unless-stopped

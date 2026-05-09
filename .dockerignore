@@ -1,0 +1,5 @@
+me1-configs/*
+__pycache__/
+*.pyc
+*.ME1
+.git/

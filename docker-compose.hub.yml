@@ -1,0 +1,21 @@
+# docker-compose.hub.yml — for RUNNING from GitHub Container Registry (no source needed)
+# Replace YOUR_GITHUB_USERNAME with your actual GitHub username before use.
+#
+# Usage:
+#   docker compose -f docker-compose.hub.yml up -d    # pull and start
+#   docker compose -f docker-compose.hub.yml down     # stop
+#   docker compose -f docker-compose.hub.yml pull     # update to latest
+#
+# Configs are stored in ./me1-configs on the host (next to this file).
+# Change the left side of the volume line to any path you prefer, e.g.:
+#   - /home/yourname/me1-configs:/data/configs
+
+services:
+  me-ole:
+    image: ghcr.io/soundbyte1024/me-ole:latest
+    container_name: me-ole
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./me1-configs:/data/configs
+    restart: unless-stopped
